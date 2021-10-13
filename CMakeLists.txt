@@ -3,8 +3,13 @@ project(regain_c C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(regain_c main.c)
-add_executable(guess_number 00_basic/guess_number.c)
-add_executable(factorial 01_function/factorial.c)
-add_executable(varargs 01_function/varargs.c)
-add_executable(fibonacci 01_function/fibonacci.c)
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/**/*.c")
+foreach(file ${files})
+    # 拿到没有路径和后缀名的纯文件名
+    get_filename_component(name ${file} NAME_WE)
+    # 下面两步是为了拿到文件路径的最后一个目录部分
+    get_filename_component(path ${file} PATH)
+    get_filename_component(last_dir ${path} NAME)
+    # 为每个单独的 c 文件加入可执行的编译配置
+    add_executable(${last_dir}____${name} ${file})
+endforeach()
