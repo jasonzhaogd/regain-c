@@ -11,6 +11,10 @@ void TestVarargs(int arg_count, ...) {
   va_list args;
 
   // 2. 开始遍历
+  // 注意 va_start 的第二个参数是要求我们指明变长参数之前的那个有名字的参数。
+  // that is the last parameter that has an explicit name (as opposed to vararg parameters, which have no names).
+  // You need to pass the last named parameter to va_start in order for it to figure out the address in memory
+  // at which the vararg parameters start.
   va_start(args, arg_count);
 
   for (int i = 0; i < arg_count; ++i) {
