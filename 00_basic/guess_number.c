@@ -9,7 +9,7 @@
 int main(void) {
   srand(time(NULL));
   int magic_number = rand();
-//  printf("magic number is %d\n", magic_number);
+  printf("magic number is %d\n", magic_number);
 
   while (1) {
     int user_input;

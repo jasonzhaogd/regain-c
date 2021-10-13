@@ -5,3 +5,4 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(regain_c main.c)
 add_executable(guess_number 00_basic/guess_number.c)
+add_executable(factorial 01_function/factorial.c)
