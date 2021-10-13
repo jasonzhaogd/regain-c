@@ -23,16 +23,16 @@
 #define PRINT_DOUBLE(value) PRINT_LINE(#value" = %g", value)
 #define PRINT_STRING(value) PRINT_LINE(#value" = %s", value)
 
-#define PRINT_ARRAY(format, array, length) \
-{                                          \
-  for(int i = 0; i < length; ++i) {        \
-    printf(format, array[i]);              \
-  };                                       \
-printf("\n");                              \
-}                                          \
+#define PRINT_ARRAY(format, array, length)              \
+{                                                       \
+  for(int i = 0; i < length; ++i) {                     \
+    printf(format, array[i]);                           \
+  };                                                    \
+printf("\n");                                           \
+}                                                       \
 
 
-#define PRINT_INT_ARRAY_PER_LINE(array, length) \
+#define PRINT_INT_ARRAY_PER_LINE(array, length)         \
 {                                                       \
   for(int i = 0; i < length; ++i) {                     \
     PRINT_LINE(#array"[%d] = %d", i, array[i]);         \
