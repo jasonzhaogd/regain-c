@@ -23,14 +23,25 @@
 #define PRINT_DOUBLE(value) PRINT_LINE(#value" = %g", value)
 #define PRINT_STRING(value) PRINT_LINE(#value" = %s", value)
 
-#define PRINT_ARRAY(format, array, length)              \
-{                                                       \
-  for(int i = 0; i < length; ++i) {                     \
-    printf(format, array[i]);                           \
-  };                                                    \
-printf("\n");                                           \
-}                                                       \
-
+#ifdef PRINT_METADATA
+#define PRINT_ARRAY(format, array, length)                              \
+{                                                                       \
+  printf(__FILE__":%d [%s] - "#array"[] = ", __LINE__, __FUNCTION__);   \
+  for(int i = 0; i < length; ++i) {                                     \
+    printf(format, array[i]);                                           \
+  };                                                                    \
+printf("\n");                                                           \
+}
+#else
+#define PRINT_ARRAY(format, array, length)                              \
+{                                                                       \
+  printf(#array"[] = ");                                                \
+  for(int i = 0; i < length; ++i) {                                     \
+    printf(format, array[i]);                                           \
+  };                                                                    \
+printf("\n");                                                           \
+}
+#endif
 
 #define PRINT_INT_ARRAY_PER_LINE(array, length)         \
 {                                                       \
