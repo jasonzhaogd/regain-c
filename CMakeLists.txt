@@ -5,7 +5,7 @@ set(CMAKE_C_STANDARD 11)
 
 file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/**/*.c")
 foreach(file ${files})
-    # 拿到没有路径和后缀名的纯文件名
+    # 拿到去掉路径和后缀名的纯文件名
     get_filename_component(name ${file} NAME_WE)
     # 下面两步是为了拿到文件路径的最后一个目录部分
     get_filename_component(path ${file} PATH)
